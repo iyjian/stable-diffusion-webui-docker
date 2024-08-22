@@ -21,3 +21,6 @@ jobs:
     steps:
       - uses: actions/checkout@v3
       - run: docker compose --profile ${{ matrix.profile }} build --progress plain
+      - run: docker tag sd-auto:78 iyjian-docker.pkg.coding.net/sd-auto:78
+      - run: docker login -u ${{ secrets.DOCKER_HUB_USERNAME }} -p ${{ secrets.DOCKER_HUB_PASSWORD }}
+      - run: docker push iyjian-docker.pkg.coding.net/sd-auto:78
