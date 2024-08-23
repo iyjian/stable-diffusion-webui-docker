@@ -27,14 +27,8 @@ jobs:
       - name: Build docker image
         run: docker compose --profile ${{ matrix.profile }} build --progress plain
 
-      - name: Tag docker image
-        run: |
-          IMAGE_NAME="iyjian-docker.pkg.coding.net/jcjy/docker/${{ matrix.profile }}"
-          IMAGE_ID=$(docker compose --profile ${{ matrix.profile }} images ${{ matrix.profile }} --quiet)
-          echo "Retrieved Docker Image ID: $IMAGE_ID"
-          docker tag $IMAGE_ID $IMAGE_NAME:latest
-
       - name: Push docker image
         run: |
-          IMAGE_NAME="iyjian-docker.pkg.coding.net/jcjy/docker/${{ matrix.profile }}"
+          IMAGE_NAME="iyjian-docker.pkg.coding.net/jcjy/docker/webui-docker-${{ matrix.profile }}"
+          docker tag webui-docker-${{ matrix.profile }} $IMAGE_NAME:latest
           docker push $IMAGE_NAME:latest
