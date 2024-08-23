@@ -30,7 +30,8 @@ jobs:
       - name: Tag docker image
         run: |
           IMAGE_NAME="iyjian-docker.pkg.coding.net/jcjy/docker/${{ matrix.profile }}"
-          docker compose --profile ${{ matrix.profile }} images --quiet | xargs -I {} docker tag {} $IMAGE_NAME:latest
+          IMAGE_ID=$(docker compose --profile ${{ matrix.profile }} images --quiet)
+          docker tag $IMAGE_ID $IMAGE_NAME:latest
 
       - name: Push docker image
         run: |
