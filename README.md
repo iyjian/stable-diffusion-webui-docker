@@ -46,3 +46,15 @@ Special thanks to everyone behind these awesome projects, without them, none of 
 - [CompVis/stable-diffusion](https://github.com/CompVis/stable-diffusion)
 - [Sygil-webui](https://github.com/Sygil-Dev/sygil-webui)
 - and many many more.
+
+
+
+iyjian-docker.pkg.coding.net/jcjy/docker/webui-docker-auto
+
+docker run --name sd -d iyjian-docker.pkg.coding.net/jcjy/docker/webui-docker-auto 
+
+docker run --name sd -d iyjian/test
+
+docker logs -f --tail 100 sd
+
+docker stop sd && docker rm sd
