@@ -60,8 +60,6 @@ RUN \
   git config --global --add safe.directory '*'
 
 RUN mkdir -p /data/.cache/huggingface/hub/ && \
-  chown -R root ~/.cache/ && \
-  chmod 766 ~/.cache/ && \
   curl -o /data/.cache/huggingface/hub/cache.tar.gz https://pic.tiusolution.com/cache.tar.gz && tar xvzf /data/.cache/huggingface/hub/cache.tar.gz -C /data/.cache/huggingface/hub
 
 RUN /docker/init.sh
