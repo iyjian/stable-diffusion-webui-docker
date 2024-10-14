@@ -69,4 +69,4 @@ ENV NVIDIA_VISIBLE_DEVICES=all
 ENV CLI_ARGS=""
 EXPOSE 7860
 ENTRYPOINT ["/docker/entrypoint.sh"]
-CMD python -u webui.py --listen --port 7860 ${CLI_ARGS}
+CMD python -u webui.py --api --skip-torch-cuda-test --no-download-sd-model --server=0.0.0.0 --port=80 --cors-allow-origins '*' --no-half --disable-nan-check --disable-nan-check --disable-console-progressbars --xformers ${CLI_ARGS}
