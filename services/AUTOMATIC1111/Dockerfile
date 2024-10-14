@@ -59,7 +59,7 @@ RUN \
   sed -i 's/in_app_dir = .*/in_app_dir = True/g' /opt/conda/lib/python3.10/site-packages/gradio/routes.py && \
   git config --global --add safe.directory '*'
 
-RUN /docker/entrypoint.sh
+RUN /docker/init.sh
 
 WORKDIR ${ROOT}
 ENV NVIDIA_VISIBLE_DEVICES=all
