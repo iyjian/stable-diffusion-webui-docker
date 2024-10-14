@@ -48,7 +48,7 @@ RUN --mount=type=cache,target=/root/.cache/pip \
 
 # there seems to be a memory leak (or maybe just memory not being freed fast enough) that is fixed by this version of malloc
 # maybe move this up to the dependencies list.
-RUN apt-get -y install libgoogle-perftools-dev && apt-get clean
+RUN apt-get -y install libgoogle-perftools-dev curl && apt-get clean
 ENV LD_PRELOAD=libtcmalloc.so
 
 COPY . /docker
