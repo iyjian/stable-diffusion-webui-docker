@@ -2,7 +2,7 @@ name: Build Images
 
 on:
   push:
-    branches: master
+    branches: feat/hxr
   pull_request:
       paths:
         - docker-compose.yml
