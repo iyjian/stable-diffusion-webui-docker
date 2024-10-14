@@ -56,11 +56,11 @@ for to_path in "${!MOUNTS[@]}"; do
   echo Mounted $(basename "${from_path}")
 done
 
-echo "Installing extension dependencies (if any)"
+# echo "Installing extension dependencies (if any)"
 
 # because we build our container as root:
-chown -R root ~/.cache/
-chmod 766 ~/.cache/
+# chown -R root ~/.cache/
+# chmod 766 ~/.cache/
 
 shopt -s nullglob
 # For install.py, please refer to https://github.com/AUTOMATIC1111/stable-diffusion-webui/wiki/Developing-extensions#installpy
