@@ -16,7 +16,7 @@ jobs:
           - auto
           # - comfy
           - download
-    runs-on: ubuntu-test
+    runs-on: ubuntu-latest
     name: ${{ matrix.profile }}
     steps:
       - uses: actions/checkout@v3
