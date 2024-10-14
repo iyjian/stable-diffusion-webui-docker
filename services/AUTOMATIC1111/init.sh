@@ -1,4 +1,5 @@
 #!/bin/bash
+mkdir -p /data/config/auto/extensions
 cd /data/config/auto/extensions
 git clone https://github.com/Mikubill/sd-webui-controlnet.git
 git clone https://github.com/w-e-w/sd-webui-nudenet-nsfw-censor.git
