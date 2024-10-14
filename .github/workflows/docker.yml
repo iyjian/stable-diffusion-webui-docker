@@ -15,20 +15,20 @@ jobs:
         profile:
           - auto
           # - comfy
-          - download
+          # - download
     runs-on: ubuntu-latest
     name: ${{ matrix.profile }}
     steps:
       - uses: actions/checkout@v3
 
       - name: login to docker registry
-        run: docker login -u ${{ secrets.DOCKER_HUB_USERNAME }} -p ${{ secrets.DOCKER_HUB_PASSWORD }} iyjian-docker.pkg.coding.net
+        run: docker login -u ${{ secrets.ALIYUN_DOCKER_PASSWORD }} -p ${{ secrets.ALIYUN_DOCKER_USER_NAME }} registry.cn-shanghai.aliyuncs.com
 
       - name: Build docker image
         run: docker compose --profile ${{ matrix.profile }} build --progress plain
 
       - name: Push docker image
         run: |
-          IMAGE_NAME="iyjian-docker.pkg.coding.net/jcjy/docker/webui-docker-${{ matrix.profile }}"
+          IMAGE_NAME="registry.cn-shanghai.aliyuncs.com/jcjy-docker/sd-webui"
           docker tag webui-docker-${{ matrix.profile }} $IMAGE_NAME:test
           docker push $IMAGE_NAME:test
