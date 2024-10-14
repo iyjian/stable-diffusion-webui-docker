@@ -59,12 +59,11 @@ RUN \
   sed -i 's/in_app_dir = .*/in_app_dir = True/g' /opt/conda/lib/python3.10/site-packages/gradio/routes.py && \
   git config --global --add safe.directory '*'
 
-RUN chown -R root ~/.cache/
-RUN chmod 766 ~/.cache/
-RUN mkdir -p /data/.cache/huggingface/hub/
-RUN curl -f -o /data/.cache/huggingface/hub/cache.tar.gz https://pic.tiusolution.com/cache.tar.gz
-RUN tar xvzf /data/.cache/huggingface/hub/cache.tar.gz -C /data/.cache/huggingface/hub
-  
+RUN mkdir -p /data/.cache/huggingface/hub/ && \
+  chown -R root ~/.cache/ && \
+  chmod 766 ~/.cache/ && \
+  curl -o /data/.cache/huggingface/hub/cache.tar.gz https://pic.tiusolution.com/cache.tar.gz && tar xvzf /data/.cache/huggingface/hub/cache.tar.gz -C /data/.cache/huggingface/hub
+
 RUN /docker/init.sh
 
 WORKDIR ${ROOT}
