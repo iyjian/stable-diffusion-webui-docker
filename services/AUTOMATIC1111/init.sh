@@ -20,3 +20,4 @@ for installscript in "${list[@]}"; do
   fi
   PYTHONPATH=${ROOT} python "$installscript"
 done
+pip install insightface
