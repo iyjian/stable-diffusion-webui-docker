@@ -3,8 +3,8 @@ name: Build Images
 on:
   push:
     branches: feat/hxr
-  tags:
-    - '0.0.*'
+    tags:
+      - '0.0.*'
   pull_request:
       paths:
         - docker-compose.yml
