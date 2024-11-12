@@ -270,7 +270,7 @@ DEFAULT_OUTDIRS = {
   "live_previews_enable": True,
   "live_previews_image_format": "png",
   "show_progress_grid": True,
-  "show_progress_every_n_steps": -1,
+  "show_progress_every_n_steps": 10,
   "show_progress_type": "Approx NN",
   "live_preview_allow_lowvram_full": False,
   "live_preview_content": "Prompt",
