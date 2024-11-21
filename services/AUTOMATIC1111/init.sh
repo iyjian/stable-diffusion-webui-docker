@@ -8,6 +8,7 @@ rm -rf .git
 cd /data/config/auto/extensions
 git clone https://github.com/w-e-w/sd-webui-nudenet-nsfw-censor.git
 git clone https://github.com/iyjian/stable-diffusion-webui-localization-zh_CN.git
+git clone https://github.com/picobyte/stable-diffusion-webui-wd14-tagger.git
 shopt -s nullglob
 # For install.py, please refer to https://github.com/AUTOMATIC1111/stable-diffusion-webui/wiki/Developing-extensions#installpy
 list=(./*/install.py)
