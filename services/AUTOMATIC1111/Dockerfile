@@ -48,7 +48,7 @@ RUN --mount=type=cache,target=/root/.cache/pip \
 
 # there seems to be a memory leak (or maybe just memory not being freed fast enough) that is fixed by this version of malloc
 # maybe move this up to the dependencies list.
-RUN apt-get -y install libgoogle-perftools-dev && apt-get clean
+RUN apt-get -y install libgoogle-perftools-dev curl && apt-get clean
 ENV LD_PRELOAD=libtcmalloc.so
 
 COPY . /docker
@@ -59,9 +59,14 @@ RUN \
   sed -i 's/in_app_dir = .*/in_app_dir = True/g' /opt/conda/lib/python3.10/site-packages/gradio/routes.py && \
   git config --global --add safe.directory '*'
 
+RUN mkdir -p /data/.cache/huggingface/hub/ && \
+  curl -o /data/.cache/huggingface/hub/cache.tar.gz https://pic.tiusolution.com/cache.tar.gz && tar xvzf /data/.cache/huggingface/hub/cache.tar.gz -C /data/.cache/huggingface/hub
+
+RUN /docker/init.sh
+
 WORKDIR ${ROOT}
 ENV NVIDIA_VISIBLE_DEVICES=all
 ENV CLI_ARGS=""
 EXPOSE 7860
 ENTRYPOINT ["/docker/entrypoint.sh"]
-CMD python -u webui.py --listen --port 7860 ${CLI_ARGS}
+CMD python -u webui.py --api --skip-torch-cuda-test --no-download-sd-model --server=0.0.0.0 --port=80 --cors-allow-origins '*' --no-half --disable-nan-check --disable-nan-check --disable-console-progressbars --xformers ${CLI_ARGS}

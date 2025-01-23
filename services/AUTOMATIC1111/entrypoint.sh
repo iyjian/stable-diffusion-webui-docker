@@ -26,8 +26,8 @@ fi
 # copy models from original models folder
 mkdir -p /data/models/VAE-approx/ /data/models/karlo/
 
-rsync -a --info=NAME ${ROOT}/models/VAE-approx/ /data/models/VAE-approx/
-rsync -a --info=NAME ${ROOT}/models/karlo/ /data/models/karlo/
+# rsync -a --info=NAME ${ROOT}/models/VAE-approx/ /data/models/VAE-approx/
+# rsync -a --info=NAME ${ROOT}/models/karlo/ /data/models/karlo/
 
 declare -A MOUNTS
 
@@ -56,30 +56,30 @@ for to_path in "${!MOUNTS[@]}"; do
   echo Mounted $(basename "${from_path}")
 done
 
-echo "Installing extension dependencies (if any)"
+# echo "Installing extension dependencies (if any)"
 
 # because we build our container as root:
-chown -R root ~/.cache/
-chmod 766 ~/.cache/
+# chown -R root ~/.cache/
+# chmod 766 ~/.cache/
 
 shopt -s nullglob
 # For install.py, please refer to https://github.com/AUTOMATIC1111/stable-diffusion-webui/wiki/Developing-extensions#installpy
-list=(./extensions/*/install.py)
-for installscript in "${list[@]}"; do
-  EXTNAME=$(echo $installscript | cut -d '/' -f 3)
-  # Skip installing dependencies if extension is disabled in config
-  if $(jq -e ".disabled_extensions|any(. == \"$EXTNAME\")" config.json); then
-    echo "Skipping disabled extension ($EXTNAME)"
-    continue
-  fi
-  PYTHONPATH=${ROOT} python "$installscript"
-done
+# list=(./extensions/*/install.py)
+# for installscript in "${list[@]}"; do
+#   EXTNAME=$(echo $installscript | cut -d '/' -f 3)
+#   # Skip installing dependencies if extension is disabled in config
+#   if $(jq -e ".disabled_extensions|any(. == \"$EXTNAME\")" config.json); then
+#     echo "Skipping disabled extension ($EXTNAME)"
+#     continue
+#   fi
+#   PYTHONPATH=${ROOT} python "$installscript"
+# done
 
-if [ -f "/data/config/auto/startup.sh" ]; then
-  pushd ${ROOT}
-  echo "Running startup script"
-  . /data/config/auto/startup.sh
-  popd
-fi
+# if [ -f "/data/config/auto/startup.sh" ]; then
+#   pushd ${ROOT}
+#   echo "Running startup script"
+#   . /data/config/auto/startup.sh
+#   popd
+# fi
 
 exec "$@"
