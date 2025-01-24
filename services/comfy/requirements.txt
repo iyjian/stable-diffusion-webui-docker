@@ -27,7 +27,6 @@ colorlog==6.8.0
 contourpy==1.1.1
 cryptography==42.0.5
 cssselect2==0.7.0
-cstr==0.1.0
 ctranslate2==3.20.0
 cycler==0.12.1
 Cython==3.0.8
