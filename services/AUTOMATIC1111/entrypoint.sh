@@ -30,10 +30,10 @@ mkdir -p /data/models/VAE-approx/ /data/models/karlo/
 # rsync -a --info=NAME ${ROOT}/models/karlo/ /data/models/karlo/
 
 declare -A MOUNTS
-MOUNTS["/mnt/models"]="/data/models"
-MOUNTS["/mnt/embeddings"]="/data/embeddings"
-MOUNTS["/mnt/controlnet/annotator"]="/data/config/auto/extensions/sd-webui-controlnet/annotator"
-MOUNTS["/mnt/controlnet/models"]="/data/config/auto/extensions/sd-webui-controlnet/models"
+MOUNTS["/data/models"]="/mnt/models"
+MOUNTS["/data/embeddings"]="/mnt/embeddings"
+MOUNTS["/data/config/auto/extensions/sd-webui-controlnet/annotator"]="/mnt/controlnet/annotator"
+MOUNTS["/data/config/auto/extensions/sd-webui-controlnet/models"]="/mnt/controlnet/models"
 
 MOUNTS["/root/.cache"]="/data/.cache"
 MOUNTS["${ROOT}/models"]="/data/models"
