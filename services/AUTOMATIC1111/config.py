@@ -107,7 +107,7 @@ DEFAULT_OUTDIRS = {
   "enable_upscale_progressbar": True,
   "print_hypernet_extra": False,
   "list_hidden_files": True,
-  "disable_mmap_load_safetensors": False,
+  "disable_mmap_load_safetensors": True,
   "hide_ldm_prints": True,
   "dump_stacks_on_signal": False,
   "unload_models_when_training": False,
