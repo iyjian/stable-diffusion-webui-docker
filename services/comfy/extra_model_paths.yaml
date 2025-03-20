@@ -11,7 +11,7 @@ a111:
     models/SwinIR
     models/GFPGAN
   hypernetworks: models/hypernetworks
-  controlnet: models/ControlNet
+  controlnet: config/auto/extensions/sd-webui-controlnet/models
   gligen: models/GLIGEN
   clip: models/CLIPEncoder
   embeddings: embeddings

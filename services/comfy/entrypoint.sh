@@ -1,10 +1,14 @@
 #!/bin/bash
-
+echo $ROOT
 set -Eeuo pipefail
 
 mkdir -vp /data/config/comfy/custom_nodes
 
 declare -A MOUNTS
+
+MOUNTS["/data/models"]="/mnt/models"
+MOUNTS["/data/embeddings"]="/mnt/embeddings"
+MOUNTS["/data/config/auto/extensions/sd-webui-controlnet/models"]="/mnt/controlnet/models"
 
 MOUNTS["/root/.cache"]="/data/.cache"
 MOUNTS["${ROOT}/input"]="/data/config/comfy/input"
