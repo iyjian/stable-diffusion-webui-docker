@@ -32,4 +32,6 @@ if [ -f "/data/config/comfy/startup.sh" ]; then
   popd
 fi
 
+echo -e "[default]\nnetwork_mode = offline" > /stable-diffusion/user/default/ComfyUI-Manager/config.ini
+
 exec "$@"
