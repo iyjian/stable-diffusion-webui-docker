@@ -24,13 +24,12 @@ RUN mkdir -p /data/.cache/huggingface/hub/ && \
   tar xvzf /data/.cache/huggingface/hub/cache.tar.gz -C /data/.cache/huggingface/hub && \
   rm /data/.cache/huggingface/hub/cache.tar.gz
 
-COPY --from=download /repositories/ ${ROOT}/custom_nodes/
-
-# RUN /docker/init.sh
-  
+COPY --from=download /repositories/ /data/config/comfy/custom_nodes
+ 
 WORKDIR ${ROOT}
 COPY . /docker/
 RUN chmod u+x /docker/entrypoint.sh && cp /docker/extra_model_paths.yaml ${ROOT}
+RUN /docker/init.sh
 
 ENV NVIDIA_VISIBLE_DEVICES=all PYTHONPATH="${PYTHONPATH}:${PWD}" CLI_ARGS=""
 EXPOSE 7860

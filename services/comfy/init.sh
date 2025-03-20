@@ -1,4 +1,14 @@
 #!/bin/bash
+# python -c 'import main;main.apply_custom_paths()'
+# python -c 'import main;main.execute_prestartup_script()'
+cd /data/config/comfy/custom_nodes
+list=(./*/requirements.txt)
+for installscript in "${list[@]}"; do
+  EXTNAME=$(echo $installscript | cut -d '/' -f 3)
+  # Skip installing dependencies if extension is disabled in config
+  PYTHONPATH=${ROOT} pip install -r "$installscript"
+done
+
 
 # mkdir -p /data/config/auto/extensions
 # cd /data/config/auto/extensions
