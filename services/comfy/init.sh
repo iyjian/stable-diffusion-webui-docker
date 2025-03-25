@@ -10,6 +10,15 @@ for installscript in "${list[@]}"; do
 done
 
 
+cd /data/config/comfy/custom_nodes/ComfyUI_Custom_Nodes_AlekPet
+list=(./*/requirements.txt)
+for installscript in "${list[@]}"; do
+  EXTNAME=$(echo $installscript | cut -d '/' -f 3)
+  # Skip installing dependencies if extension is disabled in config
+  PYTHONPATH=${ROOT} pip install -r "$installscript"
+done
+
+pip install xformers==0.0.26.post1 onnxruntime==1.18.0 onnxruntime-gpu==1.18.0
 # mkdir -p /data/config/auto/extensions
 # cd /data/config/auto/extensions
 # git clone https://github.com/Mikubill/sd-webui-controlnet.git
