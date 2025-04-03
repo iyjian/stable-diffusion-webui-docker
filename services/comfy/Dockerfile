@@ -2,7 +2,7 @@ FROM alpine/git:2.36.2 as download
 
 COPY clone.sh /clone.sh
 
-RUN . /clone.sh ComfyUI-Manager https://github.com/ltdrdata/ComfyUI-Manager.git 68aa534e1dbe0244eb6c0a0b51824b6c959a2840
+# RUN . /clone.sh ComfyUI-Manager https://github.com/ltdrdata/ComfyUI-Manager.git 68aa534e1dbe0244eb6c0a0b51824b6c959a2840
 RUN . /clone.sh ComfyUI_IPAdapter_plus https://github.com/cubiq/ComfyUI_IPAdapter_plus.git 9d076a3df0d2763cef5510ec5ab807f6632c39f5
 RUN . /clone.sh comfyui_controlnet_aux https://github.com/Fannovel16/comfyui_controlnet_aux.git 83463c2e4b04e729268e57f638b4212e0da4badc
 RUN . /clone.sh ComfyUI-Custom-Scripts https://github.com/pythongosssss/ComfyUI-Custom-Scripts.git 9f7b3215e6af317603056a9a1666bf6e83e28835
@@ -18,7 +18,7 @@ RUN . /clone.sh was-node-suite-comfyui https://github.com/WASasquatch/was-node-s
 RUN . /clone.sh ComfyUI-Easy-Use https://github.com/yolain/ComfyUI-Easy-Use.git 0104f7f6a9ef02ac6651221c4bc2b742c184e79a
 RUN . /clone.sh ComfyUI_Custom_Nodes_AlekPet https://github.com/AlekPet/ComfyUI_Custom_Nodes_AlekPet.git fcf4c2e68e2a035465cb3273cb858a0f31d3bfd8
 RUN . /clone.sh ComfyUI_UltimateSDUpscale https://github.com/ssitu/ComfyUI_UltimateSDUpscale.git 778a475dde8116a2066fe07f6c9ca15554e0b5be
-RUN . /clone.sh ComfyUI-Crystools https://github.com/crystian/ComfyUI-Crystools.git 576b44b9b79e3bf4b5d50457a28924d89a42e7e1
+# RUN . /clone.sh ComfyUI-Crystools https://github.com/crystian/ComfyUI-Crystools.git 576b44b9b79e3bf4b5d50457a28924d89a42e7e1
 RUN . /clone.sh ComfyUI-Florence2 https://github.com/kijai/ComfyUI-Florence2.git c9bd1d34eb8689746366d4bb34dfbb195aa8d0e1
 RUN . /clone.sh ComfyUI-KJNodes https://github.com/kijai/ComfyUI-KJNodes.git a5bd3c86c8ed6b83c55c2d0e7a59515b15a0137f
 RUN . /clone.sh ComfyUI-IC-Light https://github.com/kijai/ComfyUI-IC-Light.git 0208191a9bd2a214167c8a52237ecadd1fa0220c
