@@ -18,7 +18,7 @@ for installscript in "${list[@]}"; do
   PYTHONPATH=${ROOT} pip install -r "$installscript"
 done
 
-pip install xformers onnxruntime onnxruntime-gpu
+pip install xformers==0.0.26.post1 onnxruntime==1.18.0 onnxruntime-gpu==1.18.0
 # mkdir -p /data/config/auto/extensions
 # cd /data/config/auto/extensions
 # git clone https://github.com/Mikubill/sd-webui-controlnet.git
