@@ -4,7 +4,7 @@ COPY clone.sh /clone.sh
 
 # RUN . /clone.sh ComfyUI-Manager https://github.com/ltdrdata/ComfyUI-Manager.git 68aa534e1dbe0244eb6c0a0b51824b6c959a2840
 # RUN . /clone.sh ComfyUI_IPAdapter_plus https://github.com/cubiq/ComfyUI_IPAdapter_plus.git 9d076a3df0d2763cef5510ec5ab807f6632c39f5
-# RUN . /clone.sh comfyui_controlnet_aux https://github.com/Fannovel16/comfyui_controlnet_aux.git 83463c2e4b04e729268e57f638b4212e0da4badc
+RUN . /clone.sh comfyui_controlnet_aux https://github.com/Fannovel16/comfyui_controlnet_aux.git 83463c2e4b04e729268e57f638b4212e0da4badc
 # RUN . /clone.sh ComfyUI-Custom-Scripts https://github.com/pythongosssss/ComfyUI-Custom-Scripts.git 9f7b3215e6af317603056a9a1666bf6e83e28835
 # RUN . /clone.sh ComfyUI-Impact-Pack https://github.com/ltdrdata/ComfyUI-Impact-Pack.git 2708eba825335387de60220d9e461f6e4ab63bc0
 # RUN . /clone.sh AIGODLIKE-ComfyUI-Translation https://github.com/AIGODLIKE/AIGODLIKE-ComfyUI-Translation.git 10a2e68255cc877abfcbeeb9540c0494b6be1a23
