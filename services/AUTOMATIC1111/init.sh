@@ -3,7 +3,7 @@ mkdir -p /data/config/auto/extensions
 cd /data/config/auto/extensions
 git clone https://github.com/Rensqwq/sd-webui-controlnet.git
 cd sd-webui-controlnet
-git checkout 9e84513e66bd00b1518a179721cbb6a9fe6cebe5
+git checkout b02136bcdfcac4c0bd01eae8cea9b47a7ccab391
 rm -rf .git
 cd /data/config/auto/extensions
 git clone https://github.com/w-e-w/sd-webui-nudenet-nsfw-censor.git
