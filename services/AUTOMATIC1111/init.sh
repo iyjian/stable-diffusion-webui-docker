@@ -18,6 +18,8 @@ for installscript in "${list[@]}"; do
     echo "Skipping disabled extension ($EXTNAME)"
     continue
   fi
+  echo "$installscript"
   PYTHONPATH=${ROOT} python "$installscript"
+  pip list | grep numpy
 done
 pip install insightface==0.2.1
