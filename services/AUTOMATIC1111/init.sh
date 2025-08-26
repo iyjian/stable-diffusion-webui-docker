@@ -1,9 +1,9 @@
 #!/bin/bash
 mkdir -p /data/config/auto/extensions
 cd /data/config/auto/extensions
-git clone https://github.com/Mikubill/sd-webui-controlnet.git
+git clone https://github.com/Rensqwq/sd-webui-controlnet.git
 cd sd-webui-controlnet
-git checkout bb3c2a9bf7329c7d39e7b8b85a606cd5d567e57a
+git checkout 9e84513e66bd00b1518a179721cbb6a9fe6cebe5
 rm -rf .git
 cd /data/config/auto/extensions
 git clone https://github.com/w-e-w/sd-webui-nudenet-nsfw-censor.git
