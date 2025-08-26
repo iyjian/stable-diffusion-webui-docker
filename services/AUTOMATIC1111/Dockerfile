@@ -32,7 +32,7 @@ RUN --mount=type=cache,target=/root/.cache/pip \
   cd stable-diffusion-webui && \
   git reset --hard v1.10.2 && \
   pip install -r requirements_versions.txt && \
-  pip install --force-reinstall typing_extensions
+  pip install --force-reinstall typing_extensions==4.12.2
 
 
 ENV ROOT=/stable-diffusion-webui

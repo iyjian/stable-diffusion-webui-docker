@@ -20,4 +20,4 @@ for installscript in "${list[@]}"; do
   fi
   PYTHONPATH=${ROOT} python "$installscript"
 done
-pip install insightface
+pip install insightface==0.2.1
